@@ -31,6 +31,7 @@ class Elemento {
     required this.estado,
     this.valoracion = 0,
     this.notas,
+    this.imagenUrl,
     required this.fechaAlta,
   }) : titulo = titulo.trim() {
     if (this.titulo.isEmpty || this.titulo.length > 60) {
@@ -48,6 +49,7 @@ class Elemento {
   final Estado estado;
   final int valoracion;
   final String? notas;
+  final String? imagenUrl;
   final DateTime fechaAlta;
 
   /// Convierte el elemento a valores compatibles con JSON.
@@ -58,6 +60,7 @@ class Elemento {
     'estado': estado.name,
     'valoracion': valoracion,
     'notas': notas,
+    'imagenUrl': imagenUrl,
     'fechaAlta': fechaAlta.toIso8601String(),
   };
 
@@ -69,6 +72,7 @@ class Elemento {
     estado: Estado.values.byName(json['estado'] as String),
     valoracion: json['valoracion'] as int,
     notas: json['notas'] as String?,
+    imagenUrl: json['imagenUrl'] as String?,
     fechaAlta: DateTime.parse(json['fechaAlta'] as String),
   );
 
@@ -80,6 +84,8 @@ class Elemento {
     int? valoracion,
     String? notas,
     bool borrarNotas = false,
+    String? imagenUrl,
+    bool borrarImagen = false,
   }) => Elemento(
     id: id,
     titulo: titulo ?? this.titulo,
@@ -87,6 +93,7 @@ class Elemento {
     estado: estado ?? this.estado,
     valoracion: valoracion ?? this.valoracion,
     notas: borrarNotas ? null : (notas ?? this.notas),
+    imagenUrl: borrarImagen ? null : (imagenUrl ?? this.imagenUrl),
     fechaAlta: fechaAlta,
   );
 }

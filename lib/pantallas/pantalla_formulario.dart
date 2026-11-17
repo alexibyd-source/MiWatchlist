@@ -21,6 +21,7 @@ class _PantallaFormularioState extends State<PantallaFormulario> {
   final _focoTitulo = FocusNode();
   late final TextEditingController _titulo;
   late final TextEditingController _notas;
+  late final TextEditingController _imagen;
   late Tipo _tipo;
   late Estado _estado;
   late int _valoracion;
@@ -32,6 +33,7 @@ class _PantallaFormularioState extends State<PantallaFormulario> {
     final inicial = widget.inicial;
     _titulo = TextEditingController(text: inicial?.titulo ?? '');
     _notas = TextEditingController(text: inicial?.notas ?? '');
+    _imagen = TextEditingController(text: inicial?.imagenUrl ?? '');
     _tipo = inicial?.tipo ?? Tipo.pelicula;
     _estado = inicial?.estado ?? Estado.pendiente;
     _valoracion = inicial?.valoracion ?? 0;
@@ -43,16 +45,20 @@ class _PantallaFormularioState extends State<PantallaFormulario> {
     _focoTitulo.dispose();
     _titulo.dispose();
     _notas.dispose();
+    _imagen.dispose();
     super.dispose();
   }
 
   /// Valida o persiste los datos antes de confirmar el cambio.
   void _guardar() {
     if (!_formKey.currentState!.validate()) {
-      _focoTitulo.requestFocus();
+      if (_titulo.text.trim().isEmpty || _titulo.text.trim().length > 60) {
+        _focoTitulo.requestFocus();
+      }
       return;
     }
     final notas = _notas.text.trim();
+    final imagen = _imagen.text.trim();
     final inicial = widget.inicial;
     final elemento = inicial == null
         ? Elemento(
@@ -62,6 +68,7 @@ class _PantallaFormularioState extends State<PantallaFormulario> {
             estado: _estado,
             valoracion: _valoracion,
             notas: notas.isEmpty ? null : notas,
+            imagenUrl: imagen.isEmpty ? null : imagen,
             fechaAlta: DateTime.now(),
           )
         : inicial.copyWith(
@@ -71,6 +78,8 @@ class _PantallaFormularioState extends State<PantallaFormulario> {
             valoracion: _valoracion,
             notas: notas,
             borrarNotas: notas.isEmpty,
+            imagenUrl: imagen,
+            borrarImagen: imagen.isEmpty,
           );
     Navigator.pop(context, elemento);
   }
@@ -187,6 +196,28 @@ class _PantallaFormularioState extends State<PantallaFormulario> {
                   ),
                 ),
                 const SizedBox(height: 28),
+                TextFormField(
+                  key: const Key('campo_imagen'),
+                  controller: _imagen,
+                  keyboardType: TextInputType.url,
+                  decoration: const InputDecoration(
+                    labelText: 'Enlace de imagen (opcional)',
+                    hintText: 'https://ejemplo.com/portada.jpg',
+                    helperText: 'Pega el enlace directo a una imagen.',
+                  ),
+                  validator: (valor) {
+                    final texto = valor?.trim() ?? '';
+                    if (texto.isEmpty) return null;
+                    final uri = Uri.tryParse(texto);
+                    if (uri == null ||
+                        !['http', 'https'].contains(uri.scheme) ||
+                        uri.host.isEmpty) {
+                      return 'Introduce un enlace http o https válido.';
+                    }
+                    return null;
+                  },
+                ),
+                const SizedBox(height: 24),
                 TextFormField(
                   controller: _notas,
                   minLines: 3,

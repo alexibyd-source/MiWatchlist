@@ -44,6 +44,10 @@ La última compilación comprobada está incluida en el ZIP. Si modificas el có
 
 lib/modelos contiene Elemento y sus enums; lib/servicios gestiona la persistencia; lib/pantallas contiene lista, formulario, detalle y estadísticas; lib/widgets incluye los componentes reutilizables. El estado usa StatefulWidget y setState. El único paquete adicional de la app es shared_preferences; flutter_test y flutter_lints son de desarrollo.
 
+## Portadas de las reseñas
+
+El formulario admite un enlace http/https directo a una imagen. Se guarda con el elemento y se muestra en la tarjeta y el detalle. Dejar el campo vacío al editar elimina la imagen. Si el servidor no permite cargarla o el enlace falla, aparece el icono del tipo. Las portadas remotas requieren conexión y dependen del servidor que las aloja.
+
 ## Capturas
 
 Capturas de widgets reales con datos de muestra. La app empieza vacía.

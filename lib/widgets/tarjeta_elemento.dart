@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 
 import '../modelos/elemento.dart';
 import 'selector_estrellas.dart';
+import 'imagen_elemento.dart';
 
 /// Devuelve el color asociado al tipo de contenido.
 Color colorTipo(Tipo tipo) => switch (tipo) {
@@ -42,13 +43,19 @@ class TarjetaElemento extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Container(
-                width: 54,
-                height: 66,
+                width: 72,
+                height: 104,
+                clipBehavior: Clip.antiAlias,
                 decoration: BoxDecoration(
                   color: color.withValues(alpha: 0.12),
                   borderRadius: BorderRadius.circular(14),
                 ),
-                child: Icon(iconoTipo(elemento.tipo), color: color, size: 28),
+                child: ImagenElemento(
+                  url: elemento.imagenUrl,
+                  icono: iconoTipo(elemento.tipo),
+                  color: color,
+                  tamano: 28,
+                ),
               ),
               const SizedBox(width: 16),
               Expanded(

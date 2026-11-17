@@ -2,6 +2,26 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:mi_watchlist/modelos/elemento.dart';
 
 void main() {
+  test(
+    'La imagen se conserva, se elimina y es compatible con JSON antiguo',
+    () {
+      final e = Elemento(
+        id: 'imagen',
+        titulo: 'Prueba',
+        tipo: Tipo.pelicula,
+        estado: Estado.pendiente,
+        fechaAlta: DateTime(2026),
+        imagenUrl: 'https://example.com/a.jpg',
+      );
+      expect(Elemento.fromJson(e.toJson()).imagenUrl, e.imagenUrl);
+      expect(e.copyWith(titulo: 'Cambio').imagenUrl, e.imagenUrl);
+      expect(e.copyWith(borrarImagen: true).imagenUrl, isNull);
+      expect(
+        Elemento.fromJson(e.toJson()..remove('imagenUrl')).imagenUrl,
+        isNull,
+      );
+    },
+  );
   final original = Elemento(
     id: '1',
     titulo: 'Dune',

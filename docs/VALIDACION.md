@@ -30,3 +30,7 @@ La prueba capturas_test.dart solo se ejecuta con CAPTURAS=true, porque su finali
 No se ha realizado una demostración manual en navegador o móvil ni una instalación Android. La compilación entregada es la web, permitida por el enunciado; no se ha generado APK.
 
 Faltan el boceto manual docs/boceto.png, las reflexiones y respuestas personales de la bitácora y la revisión personal de los comentarios. La presencia de código que funciona no sustituye la defensa individual.
+
+## Ampliación de portadas por enlace
+
+Comprobación posterior: flutter analyze sin incidencias y 14 pruebas superadas. La prueba nueva verifica la persistencia de imagenUrl, la eliminación de la imagen y la lectura de datos antiguos sin ese campo. La compilación web se actualiza con esta función. Los ejemplos se cargan exclusivamente en el navegador local mediante una página auxiliar fuera del código publicado.

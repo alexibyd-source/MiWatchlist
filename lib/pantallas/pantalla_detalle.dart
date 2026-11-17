@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 
 import '../modelos/elemento.dart';
 import '../widgets/marco_pagina.dart';
+import '../widgets/imagen_elemento.dart';
 import '../widgets/selector_estrellas.dart';
 import '../widgets/tarjeta_elemento.dart';
 import 'pantalla_formulario.dart';
@@ -72,7 +73,8 @@ class PantallaDetalle extends StatelessWidget {
             padding: const EdgeInsets.all(24),
             children: [
               Container(
-                height: 172,
+                height: 240,
+                clipBehavior: Clip.antiAlias,
                 decoration: BoxDecoration(
                   gradient: LinearGradient(
                     colors: [
@@ -85,7 +87,12 @@ class PantallaDetalle extends StatelessWidget {
                   borderRadius: BorderRadius.circular(24),
                   border: Border.all(color: color.withValues(alpha: 0.24)),
                 ),
-                child: Icon(iconoTipo(elemento.tipo), size: 72, color: color),
+                child: ImagenElemento(
+                  url: elemento.imagenUrl,
+                  icono: iconoTipo(elemento.tipo),
+                  color: color,
+                  tamano: 72,
+                ),
               ),
               const SizedBox(height: 28),
               Text(

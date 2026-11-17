@@ -196,3 +196,11 @@ Las fases siguientes documentan la revisión de una base ya generada, no nueve s
 2. ¿Qué hace `tester.pump()` y por qué hace falta después de pulsar un botón?
 
 **Mis respuestas:** pendientes de completar personalmente.
+
+## Ampliación: imagen por enlace
+
+**Petición real:** «puedes añadir una ultima funcion que sera la posiblidad de añadir en enlace de una imagen y que esta aparezca para las reviews y añade en mi pc algunos ejemplos para ver como se veria si hago reviews».
+
+**Ayuda de Codex:** campo opcional imagenUrl en el modelo y el JSON, formulario con validación de enlaces http/https, portada en tarjeta y detalle, icono alternativo si la imagen falla y compatibilidad con elementos antiguos sin imagen. Se preparan tres reseñas de ejemplo con imágenes ilustrativas para el navegador local, conservando la colección existente.
+
+**Revisión y aprendizaje personal:** pendiente de completar por el alumno.
