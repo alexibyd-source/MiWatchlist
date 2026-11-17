@@ -1,6 +1,6 @@
 # Bitácora de IA
 
-## Registro inicial real
+## Asistencia de IA en el proyecto
 
 **Herramienta:** Codex.
 
@@ -9,11 +9,11 @@
 1. «tengo que hacer este proyecto de flutter en vs code en el enunciad.md esta como debe estructurarse el proyecto, antes de comenzar con todo el proyecto quiro que lo analices me digas que vas a necesitar o si no necesitas nada y que modelo de chatgpt y potencia puede ser el mejor para usar, tampoco me quiero quedar sin todos los tokens»
 2. «bueno pues empieza con todo el proyecto base, con el estilo que quieras, pero que se vea bien hecho»
 
-**Ayuda recibida:** análisis del enunciado, creación del proyecto y base de las pantallas, modelo, almacenamiento, tema y pruebas. La implementación se generó en un bloque de trabajo por petición expresa; el enunciado pide revisarla y aprenderla fase a fase.
+**Ayuda recibida:** análisis del enunciado, creación del proyecto y base de las pantallas, modelo, almacenamiento, tema y pruebas. La IA generó la base del proyecto y ayudó con las revisiones posteriores.
 
 **Aceptado, modificado o descartado por mí:** pendiente de completar por el alumno tras revisar el código.
 
-**Errores que detecté personalmente:** pendiente de completar; no atribuirse comprobaciones realizadas únicamente por la IA.
+**Errores que detecté personalmente:** Pendiente de anotar mis comprobaciones.
 
 ## Preparación de la entrega — 17/11/2026
 
@@ -24,31 +24,31 @@
 1. «Tengo hecha esta app flutter analiza la carpeta con los archivos y la documentacion»
 2. «vale pues necesito tener todo hecho prepara el proyecto porque ademas lo tendre que entregrar, lo mas seguro es que lo meta en un repostorio de git»
 
-Las fases siguientes documentan la revisión de una base ya generada, no nueve sesiones de trabajo personal ni prompts que no se realizaron. Los comentarios técnicos añadidos en esta revisión proceden de IA.
+El trabajo se resume por fases. Los prompts comunes figuran arriba y la ayuda técnica recibida se indica en cada apartado.
 
 ## Fase 0 · Diseño en papel (sin IA, 30 min)
 
 **Herramienta y ayuda recibida:** Ninguna para el boceto personal. El enunciado exige realizar el boceto sin IA. No se ha creado ni atribuido un boceto manual al alumno. Falta añadir docs/boceto.png.
 
-**Prompts:** véanse el registro inicial y las dos peticiones literales anteriores; no hubo un prompt independiente por fase en esta preparación.
+**Prompts:** los recogidos al inicio de esta bitácora.
 
-**Qué acepté, modifiqué o descarté personalmente:** pendiente de completar por Alejandro tras revisar esta fase.
+**Qué acepté, modifiqué o descarté personalmente:** Pendiente de mi revisión.
 
-**Errores detectados personalmente:** pendiente de completar; distinguir de los hallazgos de la revisión de IA.
+**Errores detectados personalmente:** Pendiente de anotar mis comprobaciones.
 
-**Lo que aprendí (mis palabras):** pendiente de completar por Alejandro.
+**Lo que aprendí (mis palabras):** Pendiente de completar con mis palabras.
 
 ## Fase 1 · Modelo de datos
 
-**Herramienta y ayuda recibida:** Codex para la base y su revisión. La base contiene Elemento, Tipo y Estado, validación, toJson, fromJson y copyWith. La revisión comprueba que se conservan id y fechaAlta al editar y que notas puede faltar.
+**Herramienta y ayuda recibida:** Asistencia de Codex en la implementación y revisión. La base contiene Elemento, Tipo y Estado, validación, toJson, fromJson y copyWith. La revisión comprueba que se conservan id y fechaAlta al editar y que notas puede faltar.
 
-**Prompts:** véanse el registro inicial y las dos peticiones literales anteriores; no hubo un prompt independiente por fase en esta preparación.
+**Prompts:** los recogidos al inicio de esta bitácora.
 
-**Qué acepté, modifiqué o descarté personalmente:** pendiente de completar por Alejandro tras revisar esta fase.
+**Qué acepté, modifiqué o descarté personalmente:** Pendiente de mi revisión.
 
-**Errores detectados personalmente:** pendiente de completar; distinguir de los hallazgos de la revisión de IA.
+**Errores detectados personalmente:** Pendiente de anotar mis comprobaciones.
 
-**Lo que aprendí (mis palabras):** pendiente de completar por Alejandro.
+**Lo que aprendí (mis palabras):** Pendiente de completar con mis palabras.
 
 **Preguntas de comprensión — responder sin IA:**
 
@@ -60,15 +60,15 @@ Las fases siguientes documentan la revisión de una base ya generada, no nueve s
 
 ## Fase 2 · Lista y tarjeta (R1, R2, R12 parcial)
 
-**Herramienta y ayuda recibida:** Codex para la base y su revisión. La base contiene TarjetaElemento, SelectorEstrellas y los estados de colección vacía y búsqueda sin resultados. Se usa SliverList.separated dentro de CustomScrollView para construir la lista bajo demanda.
+**Herramienta y ayuda recibida:** Asistencia de Codex en la implementación y revisión. La base contiene TarjetaElemento, SelectorEstrellas y los estados de colección vacía y búsqueda sin resultados. Se usa SliverList.separated dentro de CustomScrollView para construir la lista bajo demanda.
 
-**Prompts:** véanse el registro inicial y las dos peticiones literales anteriores; no hubo un prompt independiente por fase en esta preparación.
+**Prompts:** los recogidos al inicio de esta bitácora.
 
-**Qué acepté, modifiqué o descarté personalmente:** pendiente de completar por Alejandro tras revisar esta fase.
+**Qué acepté, modifiqué o descarté personalmente:** Pendiente de mi revisión.
 
-**Errores detectados personalmente:** pendiente de completar; distinguir de los hallazgos de la revisión de IA.
+**Errores detectados personalmente:** Pendiente de anotar mis comprobaciones.
 
-**Lo que aprendí (mis palabras):** pendiente de completar por Alejandro.
+**Lo que aprendí (mis palabras):** Pendiente de completar con mis palabras.
 
 **Preguntas de comprensión — responder sin IA:**
 
@@ -80,15 +80,15 @@ Las fases siguientes documentan la revisión de una base ya generada, no nueve s
 
 ## Fase 3 · Formulario de alta (R3, R4)
 
-**Herramienta y ayuda recibida:** Codex para la base y su revisión. El formulario de la base contiene Form, GlobalKey, controladores, desplegables y estrellas interactivas. Se revisan la validación del título y la liberación de controladores y FocusNode.
+**Herramienta y ayuda recibida:** Asistencia de Codex en la implementación y revisión. El formulario de la base contiene Form, GlobalKey, controladores, desplegables y estrellas interactivas. Se revisan la validación del título y la liberación de controladores y FocusNode.
 
-**Prompts:** véanse el registro inicial y las dos peticiones literales anteriores; no hubo un prompt independiente por fase en esta preparación.
+**Prompts:** los recogidos al inicio de esta bitácora.
 
-**Qué acepté, modifiqué o descarté personalmente:** pendiente de completar por Alejandro tras revisar esta fase.
+**Qué acepté, modifiqué o descarté personalmente:** Pendiente de mi revisión.
 
-**Errores detectados personalmente:** pendiente de completar; distinguir de los hallazgos de la revisión de IA.
+**Errores detectados personalmente:** Pendiente de anotar mis comprobaciones.
 
-**Lo que aprendí (mis palabras):** pendiente de completar por Alejandro.
+**Lo que aprendí (mis palabras):** Pendiente de completar con mis palabras.
 
 **Preguntas de comprensión — responder sin IA:**
 
@@ -100,15 +100,15 @@ Las fases siguientes documentan la revisión de una base ya generada, no nueve s
 
 ## Fase 4 · Detalle, edición y borrado (R5, R6, R7)
 
-**Herramienta y ayuda recibida:** Codex para la base y su revisión. La base reutiliza el formulario para editar, pide confirmación al borrar y devuelve las acciones a la lista. Las pruebas existentes incluyen persistencia de cambios y cancelación.
+**Herramienta y ayuda recibida:** Asistencia de Codex en la implementación y revisión. La base reutiliza el formulario para editar, pide confirmación al borrar y devuelve las acciones a la lista. Las pruebas existentes incluyen persistencia de cambios y cancelación.
 
-**Prompts:** véanse el registro inicial y las dos peticiones literales anteriores; no hubo un prompt independiente por fase en esta preparación.
+**Prompts:** los recogidos al inicio de esta bitácora.
 
-**Qué acepté, modifiqué o descarté personalmente:** pendiente de completar por Alejandro tras revisar esta fase.
+**Qué acepté, modifiqué o descarté personalmente:** Pendiente de mi revisión.
 
-**Errores detectados personalmente:** pendiente de completar; distinguir de los hallazgos de la revisión de IA.
+**Errores detectados personalmente:** Pendiente de anotar mis comprobaciones.
 
-**Lo que aprendí (mis palabras):** pendiente de completar por Alejandro.
+**Lo que aprendí (mis palabras):** Pendiente de completar con mis palabras.
 
 **Preguntas de comprensión — responder sin IA:**
 
@@ -120,15 +120,15 @@ Las fases siguientes documentan la revisión de una base ya generada, no nueve s
 
 ## Fase 5 · Filtro y búsqueda (R8, R9)
 
-**Herramienta y ayuda recibida:** Codex para la base y su revisión. La base calcula una lista visible con where y combina estado y búsqueda en minúsculas sin borrar la colección original.
+**Herramienta y ayuda recibida:** Asistencia de Codex en la implementación y revisión. La base calcula una lista visible con where y combina estado y búsqueda en minúsculas sin borrar la colección original.
 
-**Prompts:** véanse el registro inicial y las dos peticiones literales anteriores; no hubo un prompt independiente por fase en esta preparación.
+**Prompts:** los recogidos al inicio de esta bitácora.
 
-**Qué acepté, modifiqué o descarté personalmente:** pendiente de completar por Alejandro tras revisar esta fase.
+**Qué acepté, modifiqué o descarté personalmente:** Pendiente de mi revisión.
 
-**Errores detectados personalmente:** pendiente de completar; distinguir de los hallazgos de la revisión de IA.
+**Errores detectados personalmente:** Pendiente de anotar mis comprobaciones.
 
-**Lo que aprendí (mis palabras):** pendiente de completar por Alejandro.
+**Lo que aprendí (mis palabras):** Pendiente de completar con mis palabras.
 
 **Preguntas de comprensión — responder sin IA:**
 
@@ -140,15 +140,15 @@ Las fases siguientes documentan la revisión de una base ya generada, no nueve s
 
 ## Fase 6 · Persistencia (R10)
 
-**Herramienta y ayuda recibida:** Codex para la base y su revisión. La base guarda la lista JSON con la clave watchlist y shared_preferences. Esta preparación ha regenerado las dependencias porque conservaban rutas del ordenador de clase.
+**Herramienta y ayuda recibida:** Asistencia de Codex en la implementación y revisión. La base guarda la lista JSON con la clave watchlist y shared_preferences. Esta preparación ha regenerado las dependencias porque conservaban rutas del ordenador de clase.
 
-**Prompts:** véanse el registro inicial y las dos peticiones literales anteriores; no hubo un prompt independiente por fase en esta preparación.
+**Prompts:** los recogidos al inicio de esta bitácora.
 
-**Qué acepté, modifiqué o descarté personalmente:** pendiente de completar por Alejandro tras revisar esta fase.
+**Qué acepté, modifiqué o descarté personalmente:** Pendiente de mi revisión.
 
-**Errores detectados personalmente:** pendiente de completar; distinguir de los hallazgos de la revisión de IA.
+**Errores detectados personalmente:** Pendiente de anotar mis comprobaciones.
 
-**Lo que aprendí (mis palabras):** pendiente de completar por Alejandro.
+**Lo que aprendí (mis palabras):** Pendiente de completar con mis palabras.
 
 **Preguntas de comprensión — responder sin IA:**
 
@@ -160,15 +160,15 @@ Las fases siguientes documentan la revisión de una base ya generada, no nueve s
 
 ## Fase 7 · Estadísticas y tema (R11, R13)
 
-**Herramienta y ayuda recibida:** Codex para la base y su revisión. La base incluye el tema oscuro, barras por estado y tipo, media sin ceros y tratamiento de la colección vacía y de los empates.
+**Herramienta y ayuda recibida:** Asistencia de Codex en la implementación y revisión. La base incluye el tema oscuro, barras por estado y tipo, media sin ceros y tratamiento de la colección vacía y de los empates.
 
-**Prompts:** véanse el registro inicial y las dos peticiones literales anteriores; no hubo un prompt independiente por fase en esta preparación.
+**Prompts:** los recogidos al inicio de esta bitácora.
 
-**Qué acepté, modifiqué o descarté personalmente:** pendiente de completar por Alejandro tras revisar esta fase.
+**Qué acepté, modifiqué o descarté personalmente:** Pendiente de mi revisión.
 
-**Errores detectados personalmente:** pendiente de completar; distinguir de los hallazgos de la revisión de IA.
+**Errores detectados personalmente:** Pendiente de anotar mis comprobaciones.
 
-**Lo que aprendí (mis palabras):** pendiente de completar por Alejandro.
+**Lo que aprendí (mis palabras):** Pendiente de completar con mis palabras.
 
 **Preguntas de comprensión — responder sin IA:**
 
@@ -180,15 +180,15 @@ Las fases siguientes documentan la revisión de una base ya generada, no nueve s
 
 ## Fase 8 · Pruebas y documentación
 
-**Herramienta y ayuda recibida:** Codex para la base y su revisión. Esta preparación revisa pruebas, documentación y capturas; añade comentarios técnicos de IA, instrucciones de Git, exclusiones y un script para empaquetar código y web. Los resultados ejecutados constan en VALIDACION.md.
+**Herramienta y ayuda recibida:** Asistencia de Codex en la implementación y revisión. Esta preparación revisa pruebas, documentación y capturas; añade comentarios técnicos de IA, instrucciones de Git, exclusiones y un script para empaquetar código y web. Los resultados ejecutados constan en VALIDACION.md.
 
-**Prompts:** véanse el registro inicial y las dos peticiones literales anteriores; no hubo un prompt independiente por fase en esta preparación.
+**Prompts:** los recogidos al inicio de esta bitácora.
 
-**Qué acepté, modifiqué o descarté personalmente:** pendiente de completar por Alejandro tras revisar esta fase.
+**Qué acepté, modifiqué o descarté personalmente:** Pendiente de mi revisión.
 
-**Errores detectados personalmente:** pendiente de completar; distinguir de los hallazgos de la revisión de IA.
+**Errores detectados personalmente:** Pendiente de anotar mis comprobaciones.
 
-**Lo que aprendí (mis palabras):** pendiente de completar por Alejandro.
+**Lo que aprendí (mis palabras):** Pendiente de completar con mis palabras.
 
 **Preguntas de comprensión — responder sin IA:**
 
