@@ -1,0 +1,30 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Mi Watchlist - Chrome",
+      "request": "launch",
+      "type": "dart",
+      "deviceId": "chrome",
+      "toolArgs": [
+        "--web-port",
+        "7357"
+      ]
+    },
+    {
+      "name": "Mi Watchlist - Edge",
+      "request": "launch",
+      "type": "dart",
+      "deviceId": "edge",
+      "toolArgs": [
+        "--web-port",
+        "7357"
+      ]
+    },
+    {
+      "name": "Mi Watchlist - dispositivo",
+      "request": "launch",
+      "type": "dart"
+    }
+  ]
+}
