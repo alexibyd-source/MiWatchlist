@@ -59,7 +59,5 @@ key.properties
 .flutter_tool_state
 
 # Documentación y herramientas de entrega externas al repositorio
-/docs/
-/README.md
 /scripts/
 /test/capturas_test.dart
