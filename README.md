@@ -2,62 +2,68 @@
 
 **Alejandro Galindo — Desarrollo de Interfaces**
 
-App Flutter para organizar películas, series y videojuegos. Permite añadir, editar y borrar con confirmación, valorar con estrellas, buscar, filtrar y consultar estadísticas. Guarda la colección localmente en JSON con shared_preferences.
+Aplicación Flutter para gestionar películas, series y videojuegos: alta, edición, borrado con confirmación, búsqueda, filtros, valoración, notas, portadas por enlace y estadísticas. Los datos se guardan localmente con shared_preferences.
 
-## Estructura de entrega
+## Contenido de la entrega
 
-| Contenido | Ubicación | Estado |
-| --- | --- | --- |
-| Proyecto Flutter completo | lib/, test/, android/, web/, pubspec.yaml y pubspec.lock | Incluido |
-| Boceto personal de la fase 0 | docs/boceto.png | Pendiente de añadir |
-| Bitácora de IA, fases 0–8 | [docs/bitacora_ia.md](docs/bitacora_ia.md) | Fases estructuradas; reflexiones y respuestas personales pendientes |
-| README con capturas | README.md y docs/capturas/ | Incluido |
-| Versión web compilada | [distribucion/MiWatchlist_web.zip](distribucion/MiWatchlist_web.zip) | Incluida |
+| Requisito | Ubicación |
+| --- | --- |
+| Proyecto Flutter completo | lib/, test/, android/, web/ y archivos de configuración |
+| Boceto de la fase 0 | docs/boceto.png — pendiente de incorporar |
+| Bitácora de las fases 0–8 | [docs/bitacora_ia.md](docs/bitacora_ia.md) — faltan respuestas y reflexiones personales |
+| README con capturas | Este archivo y docs/capturas/ |
+| Versión web compilada | [distribucion/MiWatchlist_web.zip](distribucion/MiWatchlist_web.zip) |
 
-## Ejecutar el proyecto
+## Ejecutar
 
-Entorno utilizado: Flutter 3.50.0 y Dart 3.14.0. Instala Flutter, abre esta carpeta y ejecuta:
+Entorno utilizado: Flutter 3.50.0 / Dart 3.14.0. Desde la raíz del proyecto:
 
     flutter pub get
     flutter run -d chrome --web-port 7357
 
-También puedes usar Edge o un dispositivo Android configurado. Ejecuta flutter pub get al cambiar de ordenador; las rutas locales no se versionan.
+Puedes sustituir chrome por edge o usar un dispositivo Android configurado. Mantén el mismo navegador y puerto para recuperar los datos locales.
 
-## Abrir la versión web entregada
+## Versión web entregada
 
-Descarga y extrae distribucion/MiWatchlist_web.zip. Desde la carpeta extraída, con Python instalado:
+Extrae distribucion/MiWatchlist_web.zip y sirve la carpeta extraída por HTTP, por ejemplo con Python:
 
     python -m http.server 7357
 
-Abre http://localhost:7357. La web debe servirse por HTTP, no abrirse directamente como archivo. Los datos pertenecen al navegador y al origen; conserva el mismo puerto para mantener la colección.
+Abre http://localhost:7357. No abras index.html directamente como archivo.
 
-## Comprobar y compilar
+## Verificar y compilar
 
     dart format --output=none --set-exit-if-changed lib test
     flutter analyze
     flutter test
     flutter build web
 
-La última compilación comprobada está incluida en el ZIP. Si modificas el código, recompila y actualiza el ZIP. Para Android puedes ejecutar flutter build apk --debug si tienes el SDK configurado.
+La compilación se genera en build/web. Después de cambiar código, actualiza también el ZIP de distribucion/.
 
-## Organización y dependencias
+## Dependencias y organización
 
-lib/modelos contiene Elemento y sus enums; lib/servicios gestiona la persistencia; lib/pantallas contiene lista, formulario, detalle y estadísticas; lib/widgets incluye los componentes reutilizables. El estado usa StatefulWidget y setState. El único paquete adicional de la app es shared_preferences; flutter_test y flutter_lints son de desarrollo.
+El estado usa StatefulWidget y setState. El único paquete adicional es shared_preferences; flutter_test y flutter_lints son dependencias de desarrollo.
 
-## Portadas de las reseñas
+- lib/modelos/: modelo Elemento y enums.
+- lib/servicios/: guardado y carga de JSON.
+- lib/pantallas/: lista, formulario, detalle y estadísticas.
+- lib/widgets/: componentes reutilizables.
+- test/: pruebas del modelo, almacenamiento, formulario y flujos.
 
-El formulario admite un enlace http/https directo a una imagen. Se guarda con el elemento y se muestra en la tarjeta y el detalle. Dejar el campo vacío al editar elimina la imagen. Si el servidor no permite cargarla o el enlace falla, aparece el icono del tipo. Las portadas remotas requieren conexión y dependen del servidor que las aloja.
+## Portadas
+
+En Añadir o Editar, el campo «Enlace de imagen» está debajo de las estrellas. Acepta enlaces directos http/https. Si falla la descarga, se muestra el icono del tipo. Vaciar el campo elimina la portada.
 
 ## Capturas
 
-Capturas de widgets reales con datos de muestra. La app empieza vacía.
+Capturas con datos de muestra de la interfaz inicial, anteriores a la ampliación de portadas.
 
 ![Colección](docs/capturas/coleccion.png)
-![Móvil](docs/capturas/movil.png)
+![Vista móvil](docs/capturas/movil.png)
 ![Formulario](docs/capturas/formulario.png)
 ![Detalle](docs/capturas/detalle.png)
 ![Estadísticas](docs/capturas/estadisticas.png)
 
-## Pendientes personales
+## Pendientes antes de entregar
 
-Añadir el boceto propio en docs/boceto.png y completar las respuestas y reflexiones de la bitácora. Revisar los comentarios técnicos generados con ayuda de IA y expresarlos con palabras propias. La bitácora recoge el trabajo real sin atribuir al alumno respuestas o aprendizajes no realizados.
+Añadir el boceto personal, completar las respuestas y reflexiones de la bitácora y revisar los comentarios del código con palabras propias.
