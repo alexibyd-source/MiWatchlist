@@ -1,206 +1,55 @@
-# Bitácora de IA
+# Bitácora del proyecto Watchlist
 
-## Asistencia de IA en el proyecto
+## Introducción
 
-**Herramienta:** Codex.
+Watchlist es una aplicación desarrollada con Flutter para organizar películas y series, añadir valoraciones y consultar estadísticas. Para preparar la base del proyecto, revisar el código y ampliar algunas funciones se utilizó ChatGPT/Codex. Esta bitácora recoge de forma resumida las fases del desarrollo y las características incorporadas.
 
-**Peticiones del alumno:**
+## Fase 0. Boceto inicial
 
-1. «tengo que hacer este proyecto de flutter en vs code en el enunciad.md esta como debe estructurarse el proyecto, antes de comenzar con todo el proyecto quiro que lo analices me digas que vas a necesitar o si no necesitas nada y que modelo de chatgpt y potencia puede ser el mejor para usar, tampoco me quiero quedar sin todos los tokens»
-2. «bueno pues empieza con todo el proyecto base, con el estilo que quieras, pero que se vea bien hecho»
+La aplicación se organiza en tres apartados principales: lista de películas y series, formulario para añadir o editar elementos y pantalla de estadísticas.
 
-**Ayuda recibida:** análisis del enunciado, creación del proyecto y base de las pantallas, modelo, almacenamiento, tema y pruebas. La IA generó la base del proyecto y ayudó con las revisiones posteriores.
+adjuntado el boceto hecho a mano en `docs/boceto.png`.
 
-**Aceptado, modificado o descartado por mí:** pendiente de completar por el alumno tras revisar el código.
+## Fase 1. Modelo de datos
 
-**Errores que detecté personalmente:** Pendiente de anotar mis comprobaciones.
+Se definió un modelo `Elemento` para representar cada película o serie, junto a las enumeraciones `Tipo` y `Estado`. El modelo incluye campos opcionales y métodos `toJson`, `fromJson` y `copyWith`, necesarios para guardar y actualizar la información. El identificador y la fecha de alta se conservan cuando se edita un registro.
 
-## Preparación de la entrega — 17/11/2026
+## Fase 2. Pantalla principal
 
-**Herramienta:** ChatGPT / Codex.
+La pantalla principal muestra la colección mediante `TarjetaElemento`, con un selector de estrellas para las valoraciones. También contempla los casos en los que todavía no hay elementos o una búsqueda no devuelve resultados. La lista se construye con `CustomScrollView` y `SliverList.separated`.
 
-**Peticiones literales de esta revisión:**
+## Fase 3. Formulario
 
-1. «Tengo hecha esta app flutter analiza la carpeta con los archivos y la documentacion»
-2. «vale pues necesito tener todo hecho prepara el proyecto porque ademas lo tendre que entregrar, lo mas seguro es que lo meta en un repostorio de git»
+El formulario permite registrar una película o serie con título, tipo, estado, notas y valoración. Utiliza `Form`, `GlobalKey`, controladores y campos desplegables. Se comprueba que el título sea válido antes de guardar y se liberan los controladores cuando deja de utilizarse la pantalla.
 
-El trabajo se resume por fases. Los prompts comunes figuran arriba y la ayuda técnica recibida se indica en cada apartado.
+## Fase 4. Detalle, edición y eliminación
 
-## Fase 0 · Diseño en papel (sin IA, 30 min)
+Cada elemento dispone de una vista de detalle. Se reutiliza el formulario para editar su información y se muestra una confirmación antes de eliminarlo. El proyecto incluye pruebas relacionadas con la edición y la cancelación de acciones.
 
-**Herramienta y ayuda recibida:** Ninguna para el boceto personal. El enunciado exige realizar el boceto sin IA. No se ha creado ni atribuido un boceto manual al alumno. Falta añadir docs/boceto.png.
+## Fase 5. Búsqueda y filtros
 
-**Prompts:** los recogidos al inicio de esta bitácora.
+Es posible buscar por título y filtrar los elementos según su estado. Los resultados se calculan a partir de la colección original, sin modificarla. La búsqueda no distingue entre mayúsculas y minúsculas.
 
-**Qué acepté, modifiqué o descarté personalmente:** Pendiente de mi revisión.
+## Fase 6. Guardado de datos
 
-**Errores detectados personalmente:** Pendiente de anotar mis comprobaciones.
+La información se almacena localmente con `shared_preferences`. Los elementos se convierten a JSON y se guardan con la clave `watchlist`, para recuperarlos al abrir la aplicación. También se regeneraron dependencias que contenían rutas de otro ordenador.
 
-**Lo que aprendí (mis palabras):** Pendiente de completar con mis palabras.
+## Fase 7. Estadísticas y diseño
 
-## Fase 1 · Modelo de datos
+La aplicación utiliza un tema oscuro e incorpora estadísticas por tipo y estado. La valoración media se calcula con los elementos puntuados, sin incluir los que tienen cero estrellas. Se contemplan también las listas vacías.
 
-**Herramienta y ayuda recibida:** Asistencia de Codex en la implementación y revisión. La base contiene Elemento, Tipo y Estado, validación, toJson, fromJson y copyWith. La revisión comprueba que se conservan id y fechaAlta al editar y que notas puede faltar.
+## Fase 8. Pruebas y documentación
 
-**Prompts:** los recogidos al inicio de esta bitácora.
+El proyecto contiene pruebas y documentación de uso. Los resultados de las comprobaciones ejecutadas están recogidos en `VALIDACION.md`. La entrega incluye instrucciones para el repositorio, archivos excluidos y la preparación de una versión web.
 
-**Qué acepté, modifiqué o descarté personalmente:** Pendiente de mi revisión.
+## Ampliación. Imágenes mediante enlaces
 
-**Errores detectados personalmente:** Pendiente de anotar mis comprobaciones.
+Se incorporó el campo opcional `imagenUrl`, que permite añadir una portada a las películas y series a través de un enlace `http` o `https`. Las imágenes aparecen en la tarjeta y en la vista de detalle. Si el enlace falla, se muestra un icono alternativo. La aplicación sigue admitiendo elementos antiguos sin imagen y se prepararon tres reseñas de ejemplo para visualizar esta función.
 
-**Lo que aprendí (mis palabras):** Pendiente de completar con mis palabras.
+## Resumen de la asistencia utilizada
 
-**Preguntas de comprensión — responder sin IA:**
+Se utilizó ChatGPT/Codex para generar la estructura y la primera base funcional del proyecto, apoyar las revisiones y añadir la opción de imágenes mediante URL. Las solicitudes principales consistieron en analizar el enunciado, iniciar el proyecto, revisar sus archivos, preparar la entrega y ampliar la funcionalidad de las reseñas.
 
-1. ¿Por qué los campos son `final`? ¿Cómo «cambio» entonces el estado de un elemento?
-2. ¿Cómo se guarda un `enum` en JSON y cómo se recupera?
-3. ¿Qué pasaría en `fromJson` si el JSON no trae el campo `notas`?
+## Revisión personal pendiente
 
-**Mis respuestas:** pendientes de completar personalmente.
-
-## Fase 2 · Lista y tarjeta (R1, R2, R12 parcial)
-
-**Herramienta y ayuda recibida:** Asistencia de Codex en la implementación y revisión. La base contiene TarjetaElemento, SelectorEstrellas y los estados de colección vacía y búsqueda sin resultados. Se usa SliverList.separated dentro de CustomScrollView para construir la lista bajo demanda.
-
-**Prompts:** los recogidos al inicio de esta bitácora.
-
-**Qué acepté, modifiqué o descarté personalmente:** Pendiente de mi revisión.
-
-**Errores detectados personalmente:** Pendiente de anotar mis comprobaciones.
-
-**Lo que aprendí (mis palabras):** Pendiente de completar con mis palabras.
-
-**Preguntas de comprensión — responder sin IA:**
-
-1. ¿Qué diferencia hay entre `ListView` y `ListView.builder`? ¿Cuándo conviene cada uno?
-2. ¿Por qué `TarjetaElemento` recibe una función en lugar de navegar ella misma?
-3. ¿`TarjetaElemento` es `StatelessWidget` o `StatefulWidget`? ¿Por qué?
-
-**Mis respuestas:** pendientes de completar personalmente.
-
-## Fase 3 · Formulario de alta (R3, R4)
-
-**Herramienta y ayuda recibida:** Asistencia de Codex en la implementación y revisión. El formulario de la base contiene Form, GlobalKey, controladores, desplegables y estrellas interactivas. Se revisan la validación del título y la liberación de controladores y FocusNode.
-
-**Prompts:** los recogidos al inicio de esta bitácora.
-
-**Qué acepté, modifiqué o descarté personalmente:** Pendiente de mi revisión.
-
-**Errores detectados personalmente:** Pendiente de anotar mis comprobaciones.
-
-**Lo que aprendí (mis palabras):** Pendiente de completar con mis palabras.
-
-**Preguntas de comprensión — responder sin IA:**
-
-1. ¿Qué hace `_formKey.currentState!.validate()` y qué significa el `!`?
-2. ¿Por qué hay que llamar a `dispose()` de los controladores?
-3. Explica el viaje del dato: desde que pulsas Guardar hasta que aparece en la lista.
-
-**Mis respuestas:** pendientes de completar personalmente.
-
-## Fase 4 · Detalle, edición y borrado (R5, R6, R7)
-
-**Herramienta y ayuda recibida:** Asistencia de Codex en la implementación y revisión. La base reutiliza el formulario para editar, pide confirmación al borrar y devuelve las acciones a la lista. Las pruebas existentes incluyen persistencia de cambios y cancelación.
-
-**Prompts:** los recogidos al inicio de esta bitácora.
-
-**Qué acepté, modifiqué o descarté personalmente:** Pendiente de mi revisión.
-
-**Errores detectados personalmente:** Pendiente de anotar mis comprobaciones.
-
-**Lo que aprendí (mis palabras):** Pendiente de completar con mis palabras.
-
-**Preguntas de comprensión — responder sin IA:**
-
-1. ¿Cómo sabe el formulario si está creando o editando?
-2. ¿Cómo encuentra la lista qué elemento debe reemplazar al volver de la edición?
-3. ¿Qué devuelve `showDialog` y cómo lo usas para saber si el usuario confirmó?
-
-**Mis respuestas:** pendientes de completar personalmente.
-
-## Fase 5 · Filtro y búsqueda (R8, R9)
-
-**Herramienta y ayuda recibida:** Asistencia de Codex en la implementación y revisión. La base calcula una lista visible con where y combina estado y búsqueda en minúsculas sin borrar la colección original.
-
-**Prompts:** los recogidos al inicio de esta bitácora.
-
-**Qué acepté, modifiqué o descarté personalmente:** Pendiente de mi revisión.
-
-**Errores detectados personalmente:** Pendiente de anotar mis comprobaciones.
-
-**Lo que aprendí (mis palabras):** Pendiente de completar con mis palabras.
-
-**Preguntas de comprensión — responder sin IA:**
-
-1. ¿Por qué se filtra sobre una lista calculada y no sobre la original?
-2. ¿Qué método usas para que «dune» encuentre «Dune»?
-3. Si filtras por Terminado y buscas un título pendiente, ¿qué debe verse? ¿Lo has probado?
-
-**Mis respuestas:** pendientes de completar personalmente.
-
-## Fase 6 · Persistencia (R10)
-
-**Herramienta y ayuda recibida:** Asistencia de Codex en la implementación y revisión. La base guarda la lista JSON con la clave watchlist y shared_preferences. Esta preparación ha regenerado las dependencias porque conservaban rutas del ordenador de clase.
-
-**Prompts:** los recogidos al inicio de esta bitácora.
-
-**Qué acepté, modifiqué o descarté personalmente:** Pendiente de mi revisión.
-
-**Errores detectados personalmente:** Pendiente de anotar mis comprobaciones.
-
-**Lo que aprendí (mis palabras):** Pendiente de completar con mis palabras.
-
-**Preguntas de comprensión — responder sin IA:**
-
-1. ¿Por qué `cargar()` devuelve un `Future`? ¿Qué pasaría si la pantalla intentara pintar la lista antes de que termine?
-2. ¿Por qué no se puede usar `await` directamente dentro de `initState`? ¿Cómo lo has resuelto?
-3. ¿Dónde están físicamente los datos? ¿Se pierden si desinstalas la app?
-
-**Mis respuestas:** pendientes de completar personalmente.
-
-## Fase 7 · Estadísticas y tema (R11, R13)
-
-**Herramienta y ayuda recibida:** Asistencia de Codex en la implementación y revisión. La base incluye el tema oscuro, barras por estado y tipo, media sin ceros y tratamiento de la colección vacía y de los empates.
-
-**Prompts:** los recogidos al inicio de esta bitácora.
-
-**Qué acepté, modifiqué o descarté personalmente:** Pendiente de mi revisión.
-
-**Errores detectados personalmente:** Pendiente de anotar mis comprobaciones.
-
-**Lo que aprendí (mis palabras):** Pendiente de completar con mis palabras.
-
-**Preguntas de comprensión — responder sin IA:**
-
-1. ¿Cómo has evitado dividir entre cero en la valoración media?
-2. ¿Por qué los elementos con 0 estrellas no cuentan para la media?
-3. ¿Qué ventaja tiene definir los colores en el tema en lugar de en cada widget?
-
-**Mis respuestas:** pendientes de completar personalmente.
-
-## Fase 8 · Pruebas y documentación
-
-**Herramienta y ayuda recibida:** Asistencia de Codex en la implementación y revisión. Esta preparación revisa pruebas, documentación y capturas; añade comentarios técnicos de IA, instrucciones de Git, exclusiones y un script para empaquetar código y web. Los resultados ejecutados constan en VALIDACION.md.
-
-**Prompts:** los recogidos al inicio de esta bitácora.
-
-**Qué acepté, modifiqué o descarté personalmente:** Pendiente de mi revisión.
-
-**Errores detectados personalmente:** Pendiente de anotar mis comprobaciones.
-
-**Lo que aprendí (mis palabras):** Pendiente de completar con mis palabras.
-
-**Preguntas de comprensión — responder sin IA:**
-
-1. ¿Qué diferencia hay entre una prueba unitaria y una de widget?
-2. ¿Qué hace `tester.pump()` y por qué hace falta después de pulsar un botón?
-
-**Mis respuestas:** pendientes de completar personalmente.
-
-## Ampliación: imagen por enlace
-
-**Petición real:** «puedes añadir una ultima funcion que sera la posiblidad de añadir en enlace de una imagen y que esta aparezca para las reviews y añade en mi pc algunos ejemplos para ver como se veria si hago reviews».
-
-**Ayuda de Codex:** campo opcional imagenUrl en el modelo y el JSON, formulario con validación de enlaces http/https, portada en tarjeta y detalle, icono alternativo si la imagen falla y compatibilidad con elementos antiguos sin imagen. Se preparan tres reseñas de ejemplo con imágenes ilustrativas para el navegador local, conservando la colección existente.
-
-**Revisión y aprendizaje personal:** pendiente de completar por el alumno.
+Queda por incorporar el boceto manual, registrar las comprobaciones realizadas por el alumno y completar con sus propias palabras los apartados de aprendizaje y comprensión que exige el enunciado.
